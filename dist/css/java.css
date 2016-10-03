@@ -1,0 +1,47 @@
+/*@font-face {
+    font-family: "courrier";
+    src: url('dist/css/font/courrier.ttf');
+}*/
+
+.java-block{
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 4px;
+  padding: 9px 14px;
+  margin-bottom: 14px;
+  font-family: monospace;
+  color: black;
+}
+
+.java-new{
+  color: #7f0055;
+}
+
+.java-syso-1{
+  color: black;
+}
+
+.java-syso-2{
+  font-style: italic;
+  color: #2a00ff;
+}
+
+.java-type-donnee{
+  color: green;
+}
+
+.java-property{
+  color: red;
+}
+
+.java-variable{
+  color: #6a3e3e;
+}
+
+.java-value-string{
+  color: #2a00ff;
+}
+
+.green{
+  color: green;
+}
