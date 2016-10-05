@@ -1,7 +1,9 @@
 var elems = document.getElementsByClassName('java-block');
-var red = ['String ', 'int ', 'public ', 'static ', 'void ', 'private ', 'protected ', 'try ', 'catch '];
+var red = ['String ', 'int ', 'public ', 'static ', 'void ', 'private ', 'protected ', 'try ', 'catch ', 'if', 'else'];
 var blue = ['System'];
 var red1 = ['equals'];
+var carriageReturn = [";","{"];
+var carriageReturnAfter = ["}"];
 
 
 for (i in elems) {
@@ -40,47 +42,44 @@ function eachBlock(block){
 	}
 
 
-	var chars = block.innerHTML.match('=[ ]{0,1}"5"');
-	if(chars != "") {
-		var reg=new RegExp("=[ ]{0,1}", "g");
-		var tableau=chars[0].split(reg);
-		replacement = '= <span class="java-value-string">'+tableau[1]+'</span>';
-		replaceAll(chars, replacement, block);
-		nb = 1;
+	var reg=new RegExp('["]{1}[a-zA-Z0-9]+["]{1}', "g");
+	var chars = block.innerHTML.match(reg);
+	if(chars != null) {
+	for (i=0; i<chars.length; i++) {
+			replacement = '<span class="java-value-string">'+chars[i]+'</span>';
+			replaceAll(chars[i], replacement, block);
+			nb = 1;
+		}
 	}
 
-	var ptVirg = block.innerHTML.match('[;]');
-	if(ptVirg != "") {
-		replacement = ';</div>';
-		replaceAll(ptVirg, replacement, block);
+	var carriageReturnElement = "";
+	for (i=0; i<carriageReturn.length; i++) {
+		carriageReturnElement = block.innerHTML.match(carriageReturn[i]);
+		if(carriageReturnElement != null) {
+			replacement = carriageReturn[i]+'</div>';
+			if(carriageReturn[i] == "{"){
+				replacement += '<div class="java-ident">'
+			}
+			replaceAll(carriageReturn[i], replacement, block);
+			carriageReturnElement = "";
+		}
+	}
+
+	var carriageReturnAfterElement = "";
+	for (i=0; i<carriageReturnAfter.length; i++) {
+		carriageReturnAfterElement = block.innerHTML.match(carriageReturnAfter[i]);
+		if(carriageReturnAfterElement != null) {
+			replacement = '</div><div>'+carriageReturnAfter[i]+'</div>';
+			replaceAll(carriageReturnAfter[i], replacement, block);
+			carriageReturnAfterElement = "";
+		}
 	}
 
 	var egals = block.innerHTML.match('==');
-	console.log(egals);
 	if(egals != "") {
 		replacement = '<span class="java-property">'+egals+'</span>';
 		replaceAll(egals, replacement, block);
 	}
-
-	/*search = 'String';
-	replacement = '<div><span class="java-type-donnee">String</span>';
-	replaceAll(search, replacement, block);
-
-	search = 'ch1';
-	replacement = '<span class="java-variable">ch1</span>';
-	replaceAll(search, replacement, block);
-
-	search = 'ch2';
-	replacement = '<span class="java-variable">ch2</span>';
-	replaceAll(search, replacement, block);
-
-	search = '"5"';
-	replacement = '<span class="java-value-string">"5"</span>';
-	replaceAll(search, replacement, block);
-
-	search = ';';
-	replacement = ';</div>';
-	replaceAll(search, replacement, block);*/
 
 }
 
