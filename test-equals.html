@@ -49,6 +49,14 @@
                 System.out.println(ch1.equals(ch2));
             </div>
 
+            <div class="java-block">
+              if("Albert" == "Martin"){
+                System.out.println("La blague");
+              }else{
+                System.out.println("Chapeau");
+              }
+            </div>
+
             <p>
               Cette exemple retourne <span class="java-correct">true</span> pour les 2.
             </p>
@@ -89,6 +97,11 @@
                   Pour cet exemple, j'ai crée une classe nommée Homme avec pour attribut (age, nom et prénom) ainsi que son constructeur, ses accesseurs et la méthode hashCode() et equals:
                   </p>
                   <div class="java-block">
+                    if("Albert" == "Martin"){
+                      System.out.println("La blague");
+                    }else{
+                      System.out.println("Chapeau");
+                    }
                      Homme homme1 = new Homme(15, "Doe", "John");
                      Homme homme2 = new Homme(15, "Doe", "John");
                      System.out.println(homme1 == homme2);
@@ -126,7 +139,7 @@
                     Nous pouvons avoir le même résultat que dans l'exemple 2 si nous faisons un copie en instanciant de nouveau <span class="java-variable">homme3</span> :
                   </p>
                   <div class="java-block">
-                    <div><span class="java-type-donnee">Homme</span> <span class="java-variable">homme4</span> = <span class="java-new">new </span>Homme(<span class="java-variable">homme3</span>);</div>
+                    Homme homme4 = new Homme(homme3);
                   </div>
 
                   <h3>Exemple 5</h3>

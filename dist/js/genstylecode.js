@@ -34,7 +34,7 @@ function eachBlock(block){
 	}
 
 
-	var reg=new RegExp('["]{1}[a-zA-Z0-9]+["]{1}', "g");
+	var reg=new RegExp('["]{1}[a-zA-Z0-9 ]+["]{1}', "g");
 	var chars = block.innerHTML.match(reg);
 	if(chars != null) {
 	for (i=0; i<chars.length; i++) {
@@ -42,6 +42,48 @@ function eachBlock(block){
 			replaceAll(chars[i], replacement, block);
 			nb = 1;
 		}
+	}
+
+
+
+	var carriageReturnAfterElement = "";
+	for (i=0; i<carriageReturnAfter.length; i++) {
+		carriageReturnAfterElement = block.innerHTML.match(carriageReturnAfter[i]);
+		if(carriageReturnAfterElement != null) {
+			replacement = '</div><div>'+carriageReturnAfter[i]+'</div>';
+			replaceAll(carriageReturnAfter[i], replacement, block);
+			carriageReturnAfterElement = "";
+		}
+	}
+
+	var otherClass = block.innerHTML.match('[; ][A-Z]{1}[a-z]+|[}][A-Z]{1}[a-z]+|[(][A-Z]{1}[a-z]+[)]');
+	var tabOtherClass = [];
+	if(otherClass != "") {
+		replacement = '<div><span class="java-otherClass">'+otherClass+'</span>';
+		tabOtherClass.push(otherClass);
+		replaceAll(otherClass, replacement, block);
+	}
+
+if(tabOtherClass != null){
+	for (var i = 0; i < tabOtherClass.length; i++) {
+		if(tabOtherClass[i] != null){
+			replacement = '<span class="java-otherClass">'+tabOtherClass[i][0].trim()+'</span>';
+			replaceAll(tabOtherClass[i][0].trim(), replacement, block);
+		}
+	}
+}
+/*	if(tabOtherClass.length > 0){
+		for (var i = 0; i < tabOtherClass.length; i++) {
+			//console.log(tabOtherClass[i]);
+			replacement = '<span class="java-otherClass">'+tabOtherClass[i]+'</span>';
+			replaceAll(otherClass, replacement, block);
+		}
+	}*/
+
+	var egals = block.innerHTML.match('==');
+	if(egals != "") {
+		replacement = '<span class="java-property">'+egals+'</span>';
+		replaceAll(egals, replacement, block);
 	}
 
 	var carriageReturnElement = "";
@@ -55,28 +97,6 @@ function eachBlock(block){
 			replaceAll(carriageReturn[i], replacement, block);
 			carriageReturnElement = "";
 		}
-	}
-
-	var carriageReturnAfterElement = "";
-	for (i=0; i<carriageReturnAfter.length; i++) {
-		carriageReturnAfterElement = block.innerHTML.match(carriageReturnAfter[i]);
-		if(carriageReturnAfterElement != null) {
-			replacement = '</div><div>'+carriageReturnAfter[i]+'</div>';
-			replaceAll(carriageReturnAfter[i], replacement, block);
-			carriageReturnAfterElement = "";
-		}
-	}
-
-	var otherClass = block.innerHTML.match('[A-Z]{1}[a-z]+');
-	if(otherClass != "") {
-		replacement = '<span class="java-otherClass">'+otherClass+'</span>';
-		replaceAll(otherClass, replacement, block);
-	}
-
-	var egals = block.innerHTML.match('==');
-	if(egals != "") {
-		replacement = '<span class="java-property">'+egals+'</span>';
-		replaceAll(egals, replacement, block);
 	}
 
 }
