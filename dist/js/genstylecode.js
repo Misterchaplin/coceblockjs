@@ -1,7 +1,7 @@
 var elems = document.getElementsByClassName('java-block');
 var red = ['String ', 'int ', 'public ', 'static ', 'void ', 'private ', 'protected ', 'try ', 'catch ', 'if', 'else'];
 var blue = ['System'];
-var red1 = ['equals'];
+var red1 = ['equals', 'new '];
 var carriageReturn = [";","{"];
 var carriageReturnAfter = ["}"];
 
@@ -11,14 +11,6 @@ for (i in elems) {
 }
 
 function eachBlock(block){
-	//c = block.innerHTML.replace(/\n/g, "")
-
-	//	if(block.innerHTML.indexOf(";") !== -1) {
-		//	console.log(block.innerHTML.indexOf(";"));
-		/*	replacement = ';</div>';
-			replaceAll(";", replacement, block);*/
-	//	}
-
 
 	for (i=0; i < red.length; i++) {
 		if(block.innerHTML.indexOf(red[i]) !== -1) {
@@ -73,6 +65,12 @@ function eachBlock(block){
 			replaceAll(carriageReturnAfter[i], replacement, block);
 			carriageReturnAfterElement = "";
 		}
+	}
+
+	var otherClass = block.innerHTML.match('[A-Z]{1}[a-z]+');
+	if(otherClass != "") {
+		replacement = '<span class="java-otherClass">'+otherClass+'</span>';
+		replaceAll(otherClass, replacement, block);
 	}
 
 	var egals = block.innerHTML.match('==');

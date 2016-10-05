@@ -42,119 +42,116 @@
               Commençons d'abord par exemple avec 2 chaîne String.
             </p>
 
-			<div class="java-block">
+            <div class="java-block">
                 String ch1 = "5";
                 String ch2 = "5";
                 System.out.println(ch1 == ch2);
                 System.out.println(ch1.equals(ch2));
             </div>
-			<div class="java-block">
-              if("Marcial" == "Mickey"){
-                  System.out.println("Chapeau");
-              }
-            </div>
 
-         <!--   <div class="java-block">
-                <div><span class="java-type-donnee">String</span> <span class="java-variable">ch1</span> = <span class="java-value-string">"5"</span>;</div>
-                <div><span class="java-type-donnee">String</span> <span class="java-variable">ch2</span> = <span class="java-value-string">"5"</span>;</div>
-                <div>System.<span class="java-syso-2">out</span>.println(<span class="java-variable">ch1</span> == <span class="java-variable">ch2</span>);</div>
-                <div>System.<span class="java-syso-2">out</span>.println(<span class="java-variable">ch1</span>.equals(<span class="java-variable">ch2</span>);</div>
-            </div>
             <p>
-              Cette exemple retourne true pour les 2.
+              Cette exemple retourne <span class="java-correct">true</span> pour les 2.
             </p>
 
-            <h3>Exemple 2</h3>
-            <p>
-              Maintenant voyons un exemple avec instanciation d'un nouveau String :
-            </p>
-            <div class="java-block">
-                <div><span class="java-type-donnee">String</span> <span class="java-variable">ch3</span> = <span class="java-new">new</span> String(<span class="java-value-string">"nouveau"</span>);</div>
-                <div><span class="java-type-donnee">String</span> <span class="java-variable">ch4</span> = <span class="java-new">new</span> String(<span class="java-value-string">"nouveau"</span>);</div>
-                <div>System.<span class="java-syso-2">out</span>.println(<span class="java-variable">ch3</span> == <span class="java-variable">ch4</span>);</div>
-                <div>System.<span class="java-syso-2">out</span>.println(<span class="java-variable">ch3</span>.equals(<span class="java-variable">ch4</span>);</div>
-            </div>
-            <p>
-              Cette exemple retourne false pour la premi�re et true pour la deuxi�me. Le r�sultat est diff�rent du premier car
-              le fait de cr�er une nouvelle instance, donne lieu � une nouvelle zone m�moire.
-            </p>
-            <p>
-              <ul>
-                  <li>== : Retourne si les 2 variables sont parfaitement identique</li>
-                  <li>equals : Retourne si les 2 variables ont la m�me valeur</li>
-              </ul>
-            </p>
 
-            <h2>Egalit� type enveloppe</h2>
-            <h3>Exemple 3</h3>
-            <p>
-            Pour cet exemple, j'ai cr�e une classe nomm�e Homme avec pour attribut (age, nom et pr�nom) ainsi que son constructeur, ses accesseurs et la m�thode hashCode() et equals:
-            </p>
-            <div class="java-block">
-                <div><span class="java-type-donnee">Homme</span> <span class="java-variable">homme1</span> = <span class="java-new">new</span> Homme(15, <span class="java-value-string">"Doe"</span>, <span class="java-value-string">"John"</span>);</div>
-                <div><span class="java-type-donnee">Homme</span> <span class="java-variable">homme2</span> = <span class="java-new">new</span> Homme(15, <span class="java-value-string">"Doe"</span>, <span class="java-value-string">"John"</span>);</div>
-                <div>System.<span class="java-syso-2">out</span>.println(<span class="java-variable">homme1</span> == <span class="java-variable">homme2</span>);</div>
-                <div>System.<span class="java-syso-2">out</span>.println(<span class="java-variable">homme1</span>.equals(<span class="java-variable">homme2</span>);</div>
-            </div>
-            <p>
-              Comme pr�c�demment nous avons pour retour false pour la premi�re et true pour la suivante.
-            </p>
-            <p>
-              Au dessus, j'ai dit avoir g�n�r� la m�thode hashCode et equals pour pouvoir vous montrer le m�me r�sultat que dans l'exemple 2.
-            </p>
-            <p>
-              D�sormais, si l'on supprime les 2 m�thodes que ce passe-t-il ? Eh bien nous avons une r�ponse false pour les 2. C'est pourquoi, si vous souhaitez avoir
-              le m�me type de r�ponse que pour l'exemple 2, il est imp�ratif de g�n�rer les 2 m�thodes.
-            </p>
 
-            <h3>Exemple 4</h3>
-            <p>
-            Instance d'une classe VS copie de celle-ci.
-            </p>
-            <div class="java-block">
-                <div><span class="java-type-donnee">Homme</span> <span class="java-variable">homme3</span> = <span class="java-new">new</span> Homme(15, <span class="java-value-string">"Doe"</span>, <span class="java-value-string">"John"</span>);</div>
-                <div><span class="java-type-donnee">Homme</span> <span class="java-variable">homme4</span> = <span class="java-variable">homme3</span>;</div>
-                <div>System.<span class="java-syso-2">out</span>.println(<span class="java-variable">homme3</span> == <span class="java-variable">homme4</span>);</div>
-                <div>System.<span class="java-syso-2">out</span>.println(<span class="java-variable">homme3</span>.equals(<span class="java-variable">homme4</span>);</div>
-            </div>
-            <p>
-              Nous avons true pour les 2 car <span class="java-variable">homme4</span> est la copie parfaite de <span class="java-variable">homme3</span>.
-            </p>
-            <p>
-              Cette m�thode implique que si par exemple nous modifions l'�ge de la personne <span class="java-variable">homme4</span> � 17 au lieu de 15 alors l'�ge va aussi valoir
-              17 pour <span class="java-variable">homme3</span>.
-            </p>
-            <p>
-              Nous pouvons avoir le m�me r�sultat que dans l'exemple 2 si nous faisons un copie en instanciant de nouveau <span class="java-variable">homme3</span> :
-            </p>
-            <div class="java-block">
-              <div><span class="java-type-donnee">Homme</span> <span class="java-variable">homme4</span> = <span class="java-new">new </span>Homme(<span class="java-variable">homme3</span>);</div>
-            </div>
 
-            <h3>Exemple 5</h3>
-            <p>
-            Une copie avec Cloneable
-            </p>
-            <p>
-            Pour commencer, il faut impl�menter Cloneable sur la classe Homme puis g�n�rer la m�thode clone().
-            </p>
 
-            <div class="java-block">
-                <div><span class="java-type-donnee">Homme</span> <span class="java-variable">homme5</span> = <span class="java-new">new</span> Homme(15, <span class="java-value-string">"Doe"</span>, <span class="java-value-string">"John"</span>);</div>
-                <div><span class="java-type-donnee">Homme</span> <span class="java-variable">hommeClonned</span> = (Homme)<span class="java-variable">homme5</span>.clone();</div>
-                <div>System.<span class="java-syso-2">out</span>.println(<span class="java-variable">homme3</span> == <span class="java-variable">hommeClonned</span>);</div>
-                <div>System.<span class="java-syso-2">out</span>.println(<span class="java-variable">homme3</span>.equals(<span class="java-variable">hommeClonned</span>);</div>
+
+
+
+
+
+                  <h3>Exemple 2</h3>
+                  <p>
+                    Maintenant voyons un exemple avec instanciation d'un nouveau String :
+                  </p>
+                  <div class="java-block">
+                    String ch3 = new String("nouveau");
+                    String ch4 = new String("nouveau");
+                    System.out.println(ch3 == ch4);
+                    System.out.println(ch3.equals(ch4);
+                  </div>
+                  <p>
+                    Cette exemple retourne <span class="java-fail">false</span> pour la première et <span class="java-correct">true</span> pour la deuxième. Le résultat est différent du premier car
+                    le fait de créer une nouvelle instance, donne lieu à une nouvelle zone mémoire.
+                  </p>
+                  <p>
+                    <ul>
+                        <li>== : Retourne si les 2 variables sont parfaitement identique</li>
+                        <li>equals : Retourne si les 2 variables ont la même valeur</li>
+                    </ul>
+                  </p>
+
+                  <h2>Egalité type enveloppe</h2>
+                  <h3>Exemple 3</h3>
+                  <p>
+                  Pour cet exemple, j'ai crée une classe nommée Homme avec pour attribut (age, nom et prénom) ainsi que son constructeur, ses accesseurs et la méthode hashCode() et equals:
+                  </p>
+                  <div class="java-block">
+                     Homme homme1 = new Homme(15, "Doe", "John");
+                     Homme homme2 = new Homme(15, "Doe", "John");
+                     System.out.println(homme1 == homme2);
+                     System.out.println(homme1.equals(homme2);
+                  </div>
+                  <p>
+                    Comme précèdemment nous avons pour retour <span class="java-fail">false</span> pour la première et <span class="java-correct">true</span> pour la suivante.
+                  </p>
+                  <p>
+                    Au dessus, j'ai dit avoir généré la méthode hashCode et equals pour pouvoir vous montrer le même résultat que dans l'exemple 2.
+                  </p>
+                  <p>
+                    Désormais, si l'on supprime les 2 méthodes que ce passe-t-il ? Eh bien nous avons une réponse <span class="java-fail">false</span> pour les 2. C'est pourquoi, si vous souhaitez avoir
+                    le même type de réponse que pour l'exemple 2, il est impératif de générer les 2 méthodes.
+                  </p>
+
+                  <h3>Exemple 4</h3>
+                  <p>
+                  Instance d'une classe VS copie de celle-ci.
+                  </p>
+                  <div class="java-block">
+                    Homme homme3 = new Homme(15, "Doe", "John");
+                    Homme homme4 = homme3;
+                    System.out.println(homme3 == homme4);
+                    System.out.println(homme3.equals(homme4);
+                  </div>
+                  <p>
+                    Nous avons <span class="java-correct">true</span> pour les 2 car <span class="java-variable">homme4</span> est la copie parfaite de <span class="java-variable">homme3</span>.
+                  </p>
+                  <p>
+                    Cette méthode implique que si par exemple nous modifions l'âge de la personne <span class="java-variable">homme4</span> à 17 au lieu de 15 alors l'âge va aussi valoir
+                    17 pour <span class="java-variable">homme3</span>.
+                  </p>
+                  <p>
+                    Nous pouvons avoir le même résultat que dans l'exemple 2 si nous faisons un copie en instanciant de nouveau <span class="java-variable">homme3</span> :
+                  </p>
+                  <div class="java-block">
+                    <div><span class="java-type-donnee">Homme</span> <span class="java-variable">homme4</span> = <span class="java-new">new </span>Homme(<span class="java-variable">homme3</span>);</div>
+                  </div>
+
+                  <h3>Exemple 5</h3>
+                  <p>
+                  Une copie avec Cloneable
+                  </p>
+                  <p>
+                  Pour commencer, il faut implémenter Cloneable sur la classe Homme puis générer la méthode clone().
+                  </p>
+                  <div class="java-block">
+                    Homme homme5 = new Homme(15, "Doe", "John");
+                    Homme hommeClonned = (Homme)homme5.clone();
+                    System.out.println(homme3 == hommeClonned);
+                    System.out.println(homme3.equals(hommeClonned);
+                  </div>
+                  <p>
+                    Le résultat est identique à l'exemple 2 (<span class="java-fail">false</span> puis <span class="java-correct">true</span>).
+                  </p>
+                  <p>
+                    L'object est copié mais l'addresse mémoire est différente.
+                  </p>
+
+              </div>
             </div>
-            <p>
-              Le r�sultat est identique � l'exemple 2 (false puis true).
-            </p>
-            <p>
-              L'object est copi� mais l'addresse m�moire est diff�rente.
-            </p>
--->
-        </div>
-      </div>
-    </div>
+          </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
