@@ -23,11 +23,10 @@
       <div class="row">
         <div class="col-lg-12">
           <p>
-            Sur cette page, je vais présenter l'élité <b>Java</b> avec <b>==</b> et <b>equals</b>.
+            Sur cette page, je vais présenter l'égalité <b>Java</b> avec <b>==</b> et <b>equals</b>.
           </p>
           <p>
-            En effet beaucoup de personne se trouve confonter à ce test car suivant certain cas l'égalité se fait pas
-            comme prévue.
+            En effet, beaucoup de personnes se trouvent confortées à ce test, car suivant certains cas l'égalité ne se fait pas comme prévue.
           </p>
         </div>
       </div>
@@ -36,10 +35,10 @@
 
       <div class="row">
         <div class="col-lg-12">
-            <h2>Egalité type primitif</h2>
+            <h2>Egalité avec une classe enveloppe</h2>
             <h3>Exemple 1</h3>
             <p>
-              Commençons d'abord par exemple avec 2 chaîne String.
+              Commençons d'abord par un exemple avec 2 chaînes String.
             </p>
 
             <div class="java-block">
@@ -58,17 +57,8 @@
             </div>
 
             <p>
-              Cette exemple retourne <span class="java-correct">true</span> pour les 2.
+              Cet exemple retourne <span class="java-correct">true</span> pour les 2.
             </p>
-
-
-
-
-
-
-
-
-
 
                   <h3>Exemple 2</h3>
                   <p>
@@ -81,20 +71,20 @@
                     System.out.println(ch3.equals(ch4);
                   </div>
                   <p>
-                    Cette exemple retourne <span class="java-fail">false</span> pour la première et <span class="java-correct">true</span> pour la deuxième. Le résultat est différent du premier car
+                    Cet exemple retourne <span class="java-fail">false</span> pour la première et <span class="java-correct">true</span> pour la deuxième. Le résultat est différent du premier car
                     le fait de créer une nouvelle instance, donne lieu à une nouvelle zone mémoire.
                   </p>
                   <p>
                     <ul>
-                        <li>== : Retourne si les 2 variables sont parfaitement identique</li>
-                        <li>equals : Retourne si les 2 variables ont la même valeur</li>
+                        <li>== : Retourne false si les 2 variables sont parfaitement identiques</li>
+                        <li>equals : Retourne true si les 2 variables ont la même valeur</li>
                     </ul>
                   </p>
 
-                  <h2>Egalité type enveloppe</h2>
+                  <h2>Egalité avec notre propre classe</h2>
                   <h3>Exemple 3</h3>
                   <p>
-                  Pour cet exemple, j'ai crée une classe nommée Homme avec pour attribut (age, nom et prénom) ainsi que son constructeur, ses accesseurs et la méthode hashCode() et equals:
+                  Pour cet exemple, j'ai créé une classe nommée Homme avec pour attribut (age, nom et prénom) ainsi que son constructeur, ses accesseurs et la méthode hashCode() et equals:
                   </p>
                   <div class="java-block">
                     if("Albert" == "Martin"){
@@ -114,7 +104,7 @@
                     Au dessus, j'ai dit avoir généré la méthode hashCode et equals pour pouvoir vous montrer le même résultat que dans l'exemple 2.
                   </p>
                   <p>
-                    Désormais, si l'on supprime les 2 méthodes que ce passe-t-il ? Eh bien nous avons une réponse <span class="java-fail">false</span> pour les 2. C'est pourquoi, si vous souhaitez avoir
+                    Désormais, si l'on supprime les 2 méthodes que se passe-t-il ? Eh bien nous avons une réponse <span class="java-fail">false</span> pour les 2. C'est pourquoi, si vous souhaitez avoir
                     le même type de réponse que pour l'exemple 2, il est impératif de générer les 2 méthodes.
                   </p>
 

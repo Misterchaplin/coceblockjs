@@ -44,8 +44,6 @@ function eachBlock(block){
 		}
 	}
 
-
-
 	var carriageReturnAfterElement = "";
 	for (i=0; i<carriageReturnAfter.length; i++) {
 		carriageReturnAfterElement = block.innerHTML.match(carriageReturnAfter[i]);
@@ -99,6 +97,23 @@ if(tabOtherClass != null){
 		}
 	}
 
+	/*var lineBreak = block.innerText.match('[}]');
+	if(lineBreak != null) {
+
+		var lineBreakTemp = block.innerText.charAt(lineBreak.index+2);
+		console.log(lineBreakTemp);
+		if(lineBreakTemp.valueOf() === "e"){
+			console.log("ici");
+			replacement = lineBreak+'<div class="java-lineBreak"></div>';
+			replaceAll(lineBreak, replacement, block);
+		}
+	}*/
+	var lineBreak = block.innerText.match('[}]\s(?!else)');
+	if(lineBreak != null) {
+			console.log("ici");
+			replacement = lineBreak+'<div class="java-lineBreak"></div>';
+			replaceAll(lineBreak, replacement, block);
+	}
 }
 
 function replaceAll(search, replacement, block) {

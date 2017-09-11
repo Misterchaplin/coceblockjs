@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+    <!-- Bootstrap -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="dist/css/testEquals.css" rel="stylesheet">
+    <link href="dist/css/java.css" rel="stylesheet">
+      </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>Erreur pour l'envoi d'un email via un serveur mail</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-10">
+          <p>
+          Dans le cadre d'un projet web avec le framework CodeIgniter, pour moi il était necessaire d'utiliser l'envoi de mail qui concerne donc
+          le smtp qui utilise le port 25. En local, je n'avais pas de problème pour envoyer des mail, mais une fois cette fonctionnalité déployée
+          sur mon serveur dédié.
+          </p>
+          <p>
+            <i>ALLO ALLO où es-tu petit mail ???</i>
+          </p>
+          <p>
+            J'ai pu constater que l'on peut avoir au moins 2 erreurs différentes pour le même problème, voici celles que j'ai trouvé :<br>
+            <ul>
+              <li><b><i>The following SMTP error was encountered: 111 Connection refused Unable to send data: AUTH LOGIN</i></b></li>
+              <li><b><i>The following SMTP error was encountered: 530-5.5.1 Authentication Required. /
+                      Failed to authenticate password. Error: 535-5.7.8 Username and Password not accepted.</i></b></li>
+            </ul>
+          </p>
+          <p>
+            Ma configuration (avant résolution de mon problème) :
+          </p>
+          <img src="./images/config_smtp_before.png" alt="Configuration Smtp avant">
+
+          <p>
+            J'ai cherché pendant assez longtemp pour finalement découvrir qui suffit de modifier seulement la valeur du protocol. En effet,
+            à la place de <b>smtp</b>, il faut mettre <b>sendmail</b>.
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/bootstrap.js"></script>
+	<script src="dist/js/genstylecode.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>-->
+  </body>
+</html>

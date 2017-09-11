@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+    <!-- Bootstrap -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="dist/css/testEquals.css" rel="stylesheet">
+    <link href="dist/css/java.css" rel="stylesheet">
+      </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>Error MSB3428</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>
+            Dans plusieurs cas, quand on utilise <b>npm</b> qui est un gestionnaire de dépendances, on peut se trouver confronté à l'erreur suivant:
+          </p>
+          <p>
+             <b>
+               MSBUILD : error MSB3428: Impossible de charger le composant Visual C++ "VCBuild.exe". Pour corriger le problème,
+               vous devez : <br>
+              <ul>
+                <li>1) installer le Kit de développement .NET Framework 2.0 SDK</li>
+                <li>2) installer Microsoft Visual Studio 2005</li>
+                <li>3) ajouter l'emplacement du composant au chemin d'accès système, s'il est installé ailleurs. <i>Chemin dans votre projet</i></li>
+              </ul>
+            </b>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>
+            Cette erreur signifie qu'il manque des outils microsoft. Cela veut aussi dire que vous n'avez surement pas le logiciel <b>Visual Studio</b>
+            d'installer sur votre machine.
+          </p>
+          <p>
+            La façon la plus simple de résoudre ce problème, est de tout simplement de télécharger <b>Microsoft Visual Studio</b> et de l'installer (Environ 8 go).
+            Ensuite vous pourrez répéter votre commande <b>npm</b> et cela est censé fonctionner.
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/bootstrap.js"></script>
+	<script src="dist/js/genstylecode.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>-->
+  </body>
+</html>

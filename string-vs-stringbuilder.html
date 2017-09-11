@@ -1,0 +1,49 @@
+public static void main(String[] args) {
+		String s = "";
+		long tempsDebutString = System.currentTimeMillis();
+		for(int i=0; i<200;i++){
+		  for(int j=0; j<200;j++){
+		    s += "+ x_" + i + "_" + j+"ok";
+		  }
+		}
+
+		long tempsFinString = System.currentTimeMillis();
+		float secondsString = (tempsFinString - tempsDebutString) / 1000F;
+		System.out.println(secondsString);
+
+		StringBuilder sb = new StringBuilder();
+		long tempsDebutStringBuilder = System.currentTimeMillis();
+		for(int i=0; i<200;i++){
+		  sb = new StringBuilder();
+		  for(int j=0; j<200;j++){
+			sb.append("+ x_");
+		    sb.append(i);
+		    sb.append("_");
+		    sb.append(j);
+		    sb.append("ok");
+		  }
+		}
+		long tempsFinStringBuilder = System.currentTimeMillis();
+		float secondsStringBuilder = (tempsFinStringBuilder - tempsDebutStringBuilder) / 1000F;
+		System.out.println(secondsStringBuilder);
+
+		final String X = "+ x_";
+		final String U = "_";
+		final String O = "ok";
+		sb = new StringBuilder();
+		long tempsDebutStringBuilder2 = System.currentTimeMillis();
+		for(int i=0; i<200;i++){
+		  sb = new StringBuilder();
+		  for(int j=0; j<200;j++){
+			sb.append(X);
+		    sb.append(i);
+		    sb.append(U);
+		    sb.append(j);
+		    sb.append(O);
+		  }
+		}
+		long tempsFinStringBuilder2 = System.currentTimeMillis();
+		float secondsStringBuilder2 = (tempsFinStringBuilder2 - tempsDebutStringBuilder2) / 1000F;
+		System.out.println(secondsStringBuilder2);
+
+}
